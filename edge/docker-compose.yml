@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+
+  edge:
+    image: svnedge/app:latest
+    ports:
+      - "18080:18080"
+      - "3343:3343"
+    environment:
+      SET_PERMS: "false"
+    volumes:
+      - ${PWD}/edge/.data:/home/svnedge/csvn/data

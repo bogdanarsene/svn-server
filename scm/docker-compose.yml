@@ -2,15 +2,6 @@ version: '3.7'
 
 services:
 
-  cockroach:
-    image: cockroachdb/cockroach:v21.1.7
-    ports:
-      - "26257:26257"
-      - "8080:8080"
-    command: start-single-node --insecure
-    volumes:
-      - "${PWD}/cockroach-data/crdb:/cockroach/cockroach-data"
-
   scm:
     image: scmmanager/scm-manager:latest
     ports:
