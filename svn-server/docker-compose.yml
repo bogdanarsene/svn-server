@@ -2,7 +2,8 @@ version: "3.7"
 
 services:
 
-  svn-server:
+  svnadmin:
+    container_name: svnadmin
     image: elleflorio/svn-server:latest
     ports:
       - "80:80"
@@ -10,4 +11,4 @@ services:
     environment:
       SET_PERMS: "false"
     volumes:
-      - ${PWD}/svn-server/.data:/home/svnedge/csvn/data
+      - ${PWD}/svnadmin/.data:/home/svnedge/csvn/data

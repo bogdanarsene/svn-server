@@ -3,6 +3,7 @@ version: '3.7'
 services:
 
   scm:
+    container_name: scm
     image: scmmanager/scm-manager:latest
     ports:
     - "8081:8080"
