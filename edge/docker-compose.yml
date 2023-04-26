@@ -13,3 +13,12 @@ services:
       SET_PERMS: "false"
     volumes:
       - ${PWD}/edge/.data:/home/svnedge/csvn/data
+
+  svserve:
+    container_name: svnserve
+    image: garethflowers/svn-server:latest
+    restart: unless-stopped
+    ports:
+      - "3690:3690"
+    volumes:
+      - ${PWD}/edge/.data/repositories:/var/opt/svn

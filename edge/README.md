@@ -46,3 +46,10 @@ There are a few areas in the database where the path of your install is stored a
 You will need to change the Apache server to listen on port 18080, you can do this via the SVN Edge admin UI.
 You will need to adjust the server name to match the hostname your users will use to reach the server.
 If you were using hook scripts, there is a good chance that you will need to something to adjust them. The scripts will be running inside the docker container which means you may need to build your own container that installs needed dependencies or you may need to adjust paths within the script.
+
+
+https://manualzz.com/doc/30684291/collabnet-subversion-edge-user-guide
+
+http://localhost:3343/csvn/
+user: admin
+password: admin

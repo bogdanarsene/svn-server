@@ -17,3 +17,11 @@ To verify that everything is up and running, open your browser and connect to ht
 
 Alternative configuration via SVNADMIN
 the image provides a graphical ui using the SVNADMIN interface via http://localhost/svnadmin. You'll be prompted with a setup page, remember to test every step on the page then save the configuration.
+
+
+docker exec -t svn-server htpasswd -b /etc/subversion/passwd <username> <password>
+
+http://localhost/svn
+http://localhost/svnadmin
+
+$svn info svn://localhost:3690

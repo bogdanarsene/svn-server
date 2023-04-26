@@ -5,9 +5,10 @@ services:
   svn-server:
     container_name: svn-server
     image: elleflorio/svn-server:latest
+    restart: unless-stopped
     ports:
       - "80:80"
-      - "3690:3690"
+      - "3691:3690"
     environment:
       SET_PERMS: "false"
     volumes:

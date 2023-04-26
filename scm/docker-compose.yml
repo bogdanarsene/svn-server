@@ -5,6 +5,7 @@ services:
   scm:
     container_name: scm
     image: scmmanager/scm-manager:latest
+    restart: unless-stopped
     ports:
     - "8081:8080"
     # if the ssh plugin is used
