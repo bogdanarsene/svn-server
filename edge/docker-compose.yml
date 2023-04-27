@@ -22,3 +22,5 @@ services:
       - "3690:3690"
     volumes:
       - ${PWD}/edge/.data/repositories:/var/opt/svn
+      - ${PWD}/edge/.conf:/var/opt/svn_conf
+    command: /usr/bin/svnserve --daemon --foreground --root /var/opt/svn --config-file=/var/opt/svn_conf/svnserve.conf
