@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+
+  edge2:
+    container_name: edge2
+    image: svnedge/app:latest
+    restart: unless-stopped
+    ports:
+      - "18081:18080"
+      - "3344:3343"
+    environment:
+      SET_PERMS: "false"
+    volumes:
+      - ${PWD}/edge2/.data:/home/svnedge/csvn/data
+      - svn_bin:/home/svnedge/csvn/bin
+
+  svserve2:
+    container_name: svnserve2
+    image: garethflowers/svn-server:latest
+    restart: unless-stopped
+    ports:
+      - "3691:3690"
+    volumes:
+      - ${PWD}/edge2/.data/repositories:/var/opt/svn
+      - ${PWD}/edge2/.conf:/var/opt/svn_conf
+    #command: /usr/bin/svnserve --daemon --foreground --root /var/opt/svn --config-file=/var/opt/svn_conf/svnserve.conf
+
+volumes:
+  svn_bin:
+    name: svn_bin
+    driver_opts:
+      o: bind
+      device: ${PWD}/edge2/.svn_bin
+      type: none
